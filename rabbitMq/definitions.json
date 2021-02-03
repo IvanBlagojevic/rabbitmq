@@ -1,0 +1,47 @@
+{
+  "exchanges": [
+    {
+      "name": "exchange",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "firstQueue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "secondQueue",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "exchange",
+      "vhost": "/",
+      "destination": "firstQueue",
+      "destination_type": "queue",
+      "routing_key": "*",
+      "arguments": {}
+    },
+    {
+      "source": "exchange",
+      "vhost": "/",
+      "destination": "secondQueue",
+      "destination_type": "queue",
+      "routing_key": "*",
+      "arguments": {}
+    }
+  ]
+}
